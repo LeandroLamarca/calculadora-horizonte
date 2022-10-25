@@ -1,0 +1,17 @@
+{% extends "plantillaBase.html" %}
+
+{% block content %}
+
+<a href="{% url 'index' %}">INICIO</a>
+
+<h1>TU PLAN ACTUAL</h1>
+
+  <p>Aquí deberás indicar los datos correspondientes a la vivienda por la cual estás aportando actualmente (te ayudaremos...)</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Confirmar">
+</form>
+
+{% endblock %}

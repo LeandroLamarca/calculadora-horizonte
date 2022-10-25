@@ -1,0 +1,59 @@
+{% extends "plantillaBase.html" %}
+
+{% block content %}
+
+<a href="{% url 'index' %}">INICIO</a>
+
+<h1>TUS RESULTADOS</h1>
+
+<p>Tu vivienda actual:
+
+    {{ viviendaactualtipologia }}
+    {{ viviendaactualambientes }}
+    ({{ planactual.vivienda }})
+</p>
+
+<p>
+</p>
+
+<p>Tu vivienda a adjudicar:
+    {{ viviendaadjudicartipologia }}
+    {{ viviendaadjudicarambientes }}
+    ({{ planadjudicar.vivienda_adjudicar }})
+</p>
+
+<p>Valor: {{ valor_vivienda_adjudicar }}</p>
+
+<p>
+</p>
+
+<p>Puntos faltantes: {{ puntos_pendientes }}</p>
+
+<p>
+</p>
+ 
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Confirmar">
+</form> 
+  
+<p>
+</p>
+  
+
+<p>Aporte: {{ aportemensualactual }}</p>
+
+
+<p>Meses: {{ meses }}</p>
+    
+<p>Cuota post-adjudicación: {{ cuota_post_adjudicacion }}</p>
+
+
+<p>
+</p>
+
+<a href="{% url 'proyeccion' planactual.id %}">RE-DEFINIR EL PLAN A ADJUDICAR</a>
+
+    
+{% endblock %}

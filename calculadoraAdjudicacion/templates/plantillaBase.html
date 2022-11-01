@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculadoraAdjudicacion/style1.css' %}">
+
 {% block title %}
-<title>CUANDO ADJUDICO EN HORIZONTE</title>
+<title>¿CUANDO ADJUDICO EN HORIZONTE?</title>
 {% endblock %}
 </head>
 
 <body>
+<div class="topnav">
+  <a class="active" href="{% url 'index' %}">INICIO</a>
+  <a href="#SOBREMI">SOBRE MI</a>
+  <a href="#PROYECTO">PROYECTO</a>
+</div>
+
+<div class="general_body">
 {% block content %}
 {% endblock %}
+</div>
+
+
+
 </body>
 
 </html>

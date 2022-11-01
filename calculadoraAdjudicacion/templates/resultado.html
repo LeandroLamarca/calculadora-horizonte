@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<a href="{% url 'index' %}">INICIO</a>
-
 <h1>TUS RESULTADOS</h1>
 
 <p>Tu vivienda actual:
@@ -34,8 +32,9 @@
  
 <form action="" method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Confirmar">
+    <label for="{{ form.aporte_actual.id_for_label }}">Aporte mensual (antes de adjudicar):</label>
+    {{ form.aporte_actual }}<br>
+    <input class="boton" type="submit" value="Confirmar">
 </form> 
   
 <p>
@@ -53,7 +52,8 @@
 <p>
 </p>
 
+<div class="boton">
 <a href="{% url 'proyeccion' planactual.id %}">RE-DEFINIR EL PLAN A ADJUDICAR</a>
+</div>
 
-    
 {% endblock %}

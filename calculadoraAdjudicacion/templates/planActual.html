@@ -2,16 +2,19 @@
 
 {% block content %}
 
-<a href="{% url 'index' %}">INICIO</a>
-
 <h1>TU PLAN ACTUAL</h1>
 
-  <p>Aquí deberás indicar los datos correspondientes a la vivienda por la cual estás aportando actualmente (te ayudaremos...)</p>
+<p>Aquí deberás indicar los datos correspondientes a la vivienda por la cual estás aportando actualmente (te ayudaremos...)</p>
 
 <form action="" method="post">
     {% csrf_token %}
-    {{ form.as_table }}
-    <input type="submit" value="Confirmar">
+    <label for="{{ form.vivenda.id_for_label }}">Vivienda actual:</label>
+    {{ form.vivienda }}<br>
+    <label for="{{ form.antiguedad.id_for_label }}">Antiguedad (en meses):</label>
+    {{ form.antiguedad }}<br>
+    <label for="{{ form.cancelado.id_for_label }}">Porcentaje cancelado (%):</label>
+    {{ form.cancelado }}<br>
+    <input type="submit" value="CONFIRMAR">
 </form>
 
 {% endblock %}

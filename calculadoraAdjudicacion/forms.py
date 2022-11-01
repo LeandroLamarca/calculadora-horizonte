@@ -14,8 +14,8 @@ class PlanPorAdjudicarForm(ModelForm):
 
 class AporteActualForm(forms.Form):
     aporte_actual = forms.DecimalField(
-        label='Aporte mensual (antes de adjudicar)',
-        help_text='Monto mensual a aportar hasta el momento de la adjudicación',
+        # label='Aporte mensual (antes de adjudicar)',
+        # help_text='Monto mensual a aportar hasta el momento de la adjudicación',
         min_value=1,
         max_digits=8,
         decimal_places=2

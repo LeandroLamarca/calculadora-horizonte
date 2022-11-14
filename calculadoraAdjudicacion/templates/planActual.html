@@ -6,15 +6,25 @@
 
 <p>Aquí deberás indicar los datos correspondientes a la vivienda por la cual estás aportando actualmente (te ayudaremos...)</p>
 
-<form action="" method="post">
+
+<div class="formulario">
+  <form action="" method="post">
     {% csrf_token %}
-    <label for="{{ form.vivenda.id_for_label }}">Vivienda actual:</label>
-    {{ form.vivienda }}<br>
-    <label for="{{ form.antiguedad.id_for_label }}">Antiguedad (en meses):</label>
-    {{ form.antiguedad }}<br>
-    <label for="{{ form.cancelado.id_for_label }}">Porcentaje cancelado (%):</label>
-    {{ form.cancelado }}<br>
-    <input type="submit" value="CONFIRMAR">
-</form>
+    <div class="campos_form">
+    <br>
+    <fieldset>
+      <br>
+      <label for="{{ form.vivenda.id_for_label }}">Vivienda actual:</label>
+      {{ form.vivienda }}<br><br>
+      <label for="{{ form.antiguedad.id_for_label }}">Antiguedad (en meses):</label>
+      {{ form.antiguedad }}<br><br>
+      <label for="{{ form.cancelado.id_for_label }}">Porcentaje cancelado (%):</label>
+      {{ form.cancelado }}<br><br>
+      <input type="submit" value="CONFIRMAR">
+    </fieldset>
+    </div>  
+  </form>
+</div>  
+
 
 {% endblock %}

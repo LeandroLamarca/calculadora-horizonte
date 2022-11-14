@@ -19,17 +19,16 @@
 
 <body>
   <div class="topnav" id="myTopnav">
-    <a class="active" href="{% url 'index' %}">INICIO</a>
+    <a class="active" href="{% url 'index' %}"><b>INICIO</b></a>
     <a href="#PUNTAJE">SISTEMA DE PUNTAJE</a>
     <a class="right" href="#SOBREMI">SOBRE MI</a>
-    <a class="right" href="#PROYECTO">PROYECTO</a>
+    <a class="right" href="#ACERCA_DE">ACERCA DE</a>
     <!-- Próximo elemento <a> es necesario para la implementación del menú responsivo
     Ver fuente recomendada en el <head> -->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i></a>
   </div>
 
-  <!-- <script> Javascript necsario para la implementación del menú responsivo
-  Vewr fuente citadada en <head> -->
+  <!-- <script> Javascript necsario para la implementación del menú responsivo. Ver fuente citadada en <head> -->
   <script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
@@ -46,7 +45,15 @@
 
   <div class="footer">
     <footer>
-      <a href="https://github.com/LeandroLamarca/calculadora-horizonte" target="_blank">
+      <p class="oculto">
+        <i>Esta página no corresponde a una publicación oficial de 
+        <a href="https://www.coophorizonte.com.ar/" target="_blank">Coop. Horizonte Ltda.</a>
+        Ver detalles en: <a href="#PROYECTO">PROYECTO</a>
+        </i>
+      </p>
+      <a href="https://github.com/LeandroLamarca/calculadora-horizonte" 
+         target="_blank" title="Visitar proyecto en GitHub"
+      >
         <img
           src="/static/calculadoraAdjudicacion/images/github.png"
           alt="Proyecto en GitHub"

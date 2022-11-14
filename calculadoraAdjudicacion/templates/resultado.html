@@ -4,41 +4,36 @@
 
 <h1>TUS RESULTADOS</h1>
 
+<br>
 <p>Tu vivienda actual:
 
     {{ viviendaactualtipologia }}
     {{ viviendaactualambientes }}
     ({{ planactual.vivienda }})
 </p>
-
-<p>
-</p>
-
+<br>
 <p>Tu vivienda a adjudicar:
     {{ viviendaadjudicartipologia }}
     {{ viviendaadjudicarambientes }}
     ({{ planadjudicar.vivienda_adjudicar }})
 </p>
-
-<p>Valor: {{ valor_vivienda_adjudicar }}</p>
-
-<p>
-</p>
-
+<br>
+<p>Valor actualizado: {{ valor_vivienda_adjudicar }}</p>
+<br>
 <p>Puntos faltantes: {{ puntos_pendientes }}</p>
 
-<p>
-</p>
- 
+<div class="formulario">
 <form action="" method="post">
     {% csrf_token %}
+    <div class="campos_form">
+    <fieldset>
     <label for="{{ form.aporte_actual.id_for_label }}">Aporte mensual (antes de adjudicar):</label>
     {{ form.aporte_actual }}<br>
-    <input class="boton" type="submit" value="Confirmar">
+    <input class="boton" type="submit" value="CONFIRMAR">
+    </fieldset>
+    </div>
 </form> 
-  
-<p>
-</p>
+</div>
   
 
 <p>Aporte: {{ aportemensualactual }}</p>
@@ -48,12 +43,8 @@
     
 <p>Cuota post-adjudicación: {{ cuota_post_adjudicacion }}</p>
 
-
-<p>
-</p>
-
 <div class="boton">
 <a href="{% url 'proyeccion' planactual.id %}">RE-DEFINIR EL PLAN A ADJUDICAR</a>
 </div>
-
+<br>
 {% endblock %}

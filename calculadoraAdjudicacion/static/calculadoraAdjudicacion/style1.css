@@ -33,11 +33,32 @@ body {
     display: block;
     text-align: left;
   }
-  
-  /* Del tamaño de la fuente y model_box */
-  h1 {font-size: 20px;}
-  p {font-size: 15px;}
-  .boton a {font-size: 12px;padding: 8px 10px;}
+  /* Margenes, tamaños de fuente y model_box */
+  .general_body {margin-left: 3%;margin-top: 5%;margin-bottom:5%;}
+  h1 {font-size: 20px;margin: 0px 3px 0px 0px;margin-block-start: 0px;margin-block-end: 8px;}
+  .general_body p {font-size: 15px;margin: 0px 15px 0px 0px;margin-block-start: 0px;margin-block-end: 5px;}
+  .oculto {display: none;}
+  legend {font-size: 15px;}
+  .campos_form label, input[type=text], input[type=number], select {
+  padding:2px 0px;
+  font-size: 15px;
+  }
+  .formulario {
+  margin-block-start: 8px;
+  margin-block-end: 8px;
+  }
+  fieldset {
+  display: inline-block;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #2F4F4F;
+  border-width: 1px;
+  margin: 0px 15px 0px 0px;
+  }
+  .sub_set {
+  border-style: dotted;
+  }
+  .boton a {font-size: 12px;padding: 8px 10px;margin-block-start: 6px;margin-block-end: 6px;}
   .topnav a, a.active {padding: 10px 14px;font-size: 15px;display:inline-block;}
   input[type=submit] {padding: 6px 6px;margin: 3px 2px;}
   img {width:30px;height:30px;padding: 8px;}
@@ -45,14 +66,36 @@ body {
 
 /* Para dispositivos con screen mayor a 600px*/
 @media only screen and (min-width: 601px) {
-  /*Del tamaño de la fuente y model_box*/
-  h1 {font-size: 30px;}
-  p {font-size: 20px;}
-  .boton a {font-size: 15px;padding: 10px 14px;}
+  /* Margenes, tamaños de fuente y model_box */
+  .general_body {margin-left: 2%;margin-top: 2%;}
+  h1 {font-size: 30px;margin-block-start: 0px;margin-block-end: 10px;}
+  .general_body p {font-size: 20px;margin-block-start: 6px;margin-block-end: 6px;}
+  .oculto {display:block;font-size: 15px;color:white;text-align:center;}
+  legend {font-size: 20px;}
+  .campos_form label, input[type=text], input[type=number], select/*, legend*/ {
+  padding:2px 0px;
+  font-size: 20px;
+  }
+  .formulario {
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  }
+  fieldset {
+  display: inline-block;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #2F4F4F;
+  border-width: 2px;
+  }
+  .sub_set {
+  display: inline-block;
+  border-style: dashed;
+  }
+  .boton a {font-size: 15px;padding: 10px 14px;margin-block-start: 6px;margin-block-end: 6px;}
   .topnav {overflow: hidden;}
   .topnav a {padding: 14px 16px;font-size: 17px;float: left;text-align: center;}
   .topnav a.right {float: right;}
-  input[type=submit] {padding: 8px 8px;margin: 4px 2px;}
+  input[type=submit] {padding: 8px;margin-block-start: 6px;margin-block-end: 6px;}
   img {width:40px;height:40px;padding: 10px;}
 }
 
@@ -70,19 +113,13 @@ body {
 /* Estilo del link activo del Menú principal */
 .topnav a.active {
   background-color: #DAA520;
-  color: #2F4F4F;
+  color: black;
 }
 
 /* Estilo de links activo del Menú principal al recibir foco del mouse */
 .topnav a:hover {
   background-color: #ddd;
   color: black;
-}
-
-/* Estilo general del cuerpo (márgenes) */
-.general_body {
-  margin-left: 2%;
-  margin-top: 2%;
 }
 
 /* Estilo de botones/links del body */

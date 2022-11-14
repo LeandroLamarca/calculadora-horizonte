@@ -4,33 +4,43 @@
 
 <h1>TU PLAN A ADJUDICAR</h1>
 
-  <p>Aquí deberás definir la vivienda a adjudicar, algunos otros datos (te ayudaremos...)</p>
+<p>Aquí deberás definir la vivienda a adjudicar, algunos otros datos (te ayudaremos...)</p>
 
-<form action="" method="post">
+<div class="formulario">
+  <form action="" method="post">
     {% csrf_token %}
-    
-    <label for="{{ form.vivienda_adjudicar.id_for_label }}">Vivienda elegida:</label>
-    {{ form.vivienda_adjudicar }}<br>
-    <label for="{{ form.odm.id_for_label }}">Oferta de devolución mensual (%):</label>
-    {{ form.odm }}<br>
-    Aportes en efectivo:<br>
-    <label for="{{ form.oferta_efectivo.id_for_label }}">Al momento de la adjudicación:</label>
-    {{ form.oferta_efectivo }}<br>
-    <label for="{{ form.oferta_treinta.id_for_label }}">A los 30 días de la adjudicación:</label>
-    {{ form.oferta_treinta }}<br>
-    <label for="{{ form.oferta_sesenta.id_for_label }}">A los 60 días de la adjudicación:</label>
-    {{ form.oferta_sesenta }}<br>
-    <label for="{{ form.oferta_noventa.id_for_label }}">A los 90 días de la adjudicación:</label>
-    {{ form.oferta_noventa }}<br>
-    <label for="{{ form.oferta_c_veinte.id_for_label }}">A los 120 días de la adjudicación:</label>
-    {{ form.oferta_c_veinte }}<br>
-    <label for="{{ form.oferta_c_cincuenta.id_for_label }}">A los 150 días de la adjudicación:</label>
-    {{ form.oferta_c_cincuenta }}<br>
-    <label for="{{ form.oferta_c_ochenta.id_for_label }}">A los 180 días de la adjudicación:</label>
-    {{ form.oferta_c_ochenta }}<br>
-    
-    
-    <input type="submit" value="CONFIRMAR">
-</form>
+    <div class="campos_form">
+    <br>
+    <fieldset>  
+      <br>
+      <label for="{{ form.vivienda_adjudicar.id_for_label }}">Vivienda elegida:</label>
+      {{ form.vivienda_adjudicar }}<br><br>
+      <label for="{{ form.odm.id_for_label }}">Oferta de devolución mensual (%):</label>
+      {{ form.odm }}<br><br>
+      
+      <br>
+      <fieldset class="sub_set">
+        <legend>Aportes en efectivo:</legend>
+        <label for="{{ form.oferta_efectivo.id_for_label }}">Al momento de la adjudicación:</label>
+        {{ form.oferta_efectivo }}<br><br>
+        <label for="{{ form.oferta_treinta.id_for_label }}">A los 30 días de la adjudicación:</label>
+        {{ form.oferta_treinta }}<br><br>
+        <label for="{{ form.oferta_sesenta.id_for_label }}">A los 60 días de la adjudicación:</label>
+        {{ form.oferta_sesenta }}<br><br>
+        <label for="{{ form.oferta_noventa.id_for_label }}">A los 90 días de la adjudicación:</label>
+        {{ form.oferta_noventa }}<br><br>
+        <label for="{{ form.oferta_c_veinte.id_for_label }}">A los 120 días de la adjudicación:</label>
+        {{ form.oferta_c_veinte }}<br><br>
+        <label for="{{ form.oferta_c_cincuenta.id_for_label }}">A los 150 días de la adjudicación:</label>
+        {{ form.oferta_c_cincuenta }}<br><br>
+        <label for="{{ form.oferta_c_ochenta.id_for_label }}">A los 180 días de la adjudicación:</label>
+        {{ form.oferta_c_ochenta }}<br>
+      </fieldset>
+      <br><br>
+      <input type="submit" value="CONFIRMAR">
+    </fieldset>
+    </div>
+  </form>
+</div>
 
 {% endblock %}

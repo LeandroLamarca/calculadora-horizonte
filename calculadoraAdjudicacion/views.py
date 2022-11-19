@@ -121,7 +121,7 @@ def resultado(request, pk, pk2):
         puntos_promesas_final = Decimal(270) - puntos_promesas 
     
     
-    contexto_render['puntos_totales'] = puntos_totales
+    contexto_render['puntos_totales'] = '{:,.4f}'.format(puntos_totales).translate(miles_conversor)
     contexto_render['puntos_promesas'] = puntos_promesas_final
     
     # Cálculo de puntos restantes

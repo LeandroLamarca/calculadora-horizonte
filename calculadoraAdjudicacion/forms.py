@@ -1,11 +1,19 @@
-from django.forms import ModelForm
+from django.forms import ModelForm,ModelChoiceField
 from django import forms
 from calculadoraAdjudicacion.models import PlanActual, PlanPorAdjudicar
 
+class ViviendaActualChoiceField(ModelChoiceField):
+        def label_from_instance(self, obj):
+            return obj.cod_hzte
+
 class PlanActualForm (ModelForm):
+    
     class Meta:
         model = PlanActual
         exclude = ['deuda']
+        field_classes = {
+            'vivienda': ViviendaActualChoiceField
+        }
 
 class PlanPorAdjudicarForm(ModelForm):
     class Meta:

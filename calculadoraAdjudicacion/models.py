@@ -67,11 +67,11 @@ class Vivienda(models.Model):
     
     # String para representar al objeto 'Vivienda'
     def __str__(self):
-        # if self.lote == 'LE':
-            # return '{0} {1}'.format(self.tipologia,self.ambientes)
-        # else:
-            # return '{0} {1} ({2})'.format(self.tipologia,self.ambientes,self.lote)
-        return self.cod_hzte
+        if self.lote == 'LE':
+            return '{0} - {1}'.format(self.get_tipologia_display(),self.get_ambientes_display())
+        else:
+            return '{0} - {1} ({2})'.format(self.get_tipologia_display(),self.get_ambientes_display(),self.lote)
+    
 
 '''
 Definición "ValorActualizado", representación del valor actualizado de la 'Vivienda'.
@@ -79,6 +79,7 @@ Definición "ValorActualizado", representación del valor actualizado de la 'Viv
 class ValorActualizado(models.Model):
     cod_hzte = models.ForeignKey(
         Vivienda,
+        to_field='cod_hzte',
         on_delete=models.SET_NULL,
         null=True
     )
@@ -135,10 +136,11 @@ class PlanPorAdjudicar(models.Model):
     # Vivienda que proyecta adjudicar (puede, o no, coincidir con la vivienda correspondiente al plan actual
     vivienda_adjudicar = models.ForeignKey(
         Vivienda,
-        to_field='cod_hzte',
+        # to_field='cod_hzte',
         limit_choices_to={'vigente': True},
         on_delete=models.SET_NULL,
-        null=True
+        null=True,
+        blank=False
     )
     
     # Oferta de Devolución mensual (en %)

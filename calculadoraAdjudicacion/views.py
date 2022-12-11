@@ -158,7 +158,7 @@ def resultado(request, pk, pk2):
             contexto_render['aportemensualactual'] = pesos(aportemensualactual)
             contexto_render['meses'] = meses(aportemensualactual)
             if (aportemensualactual - aporteminimo) <= 0:
-                error = ValidationError(_('Debe ser más grande que: %(valor)s'),code='min_value',
+                error = ValidationError(_('Debe ser mayor: %(valor)s (gastos administrativos)'),code='min_value',
                             params={'valor': pesos(aporteminimo)})
                 form_aporteactual.add_error('aporte_actual', error)    
                 meses_error = 'No es posible calcularlos si no especificas un valor correcto como aporte actual'
@@ -179,3 +179,6 @@ def resultado(request, pk, pk2):
     contexto_render['form'] = form_aporteactual 
     
     return render(request, 'resultado.html',contexto_render)
+
+def puntaje(request):
+    return render(request, 'sistema_puntaje.html')

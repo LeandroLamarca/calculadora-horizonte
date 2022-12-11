@@ -16,20 +16,33 @@
       <label for="{{ form.vivienda_adjudicar.id_for_label }}">Vivienda elegida:</label>
       {{ form.vivienda_adjudicar }}<br><br>
       <div>
-      <label for="{{ form.odm.id_for_label }}">Oferta de devolución mensual (%):</label>
+      <label for="{{ form.odm.id_for_label }}">ODM (%):</label>
       {{ form.odm }}
       </div>
       <div class="tooltip">
       <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
-      <span class="tooltiptext">Aporte mensual que te comprometes a cancelar desde que adjudiques.<br><br>
+      <span class="tooltiptext"><b>Oferta de Devolución Mensual</b><br><br>
+      Aporte mensual que te comprometes a cancelar desde que adjudiques.<br><br>
       En concreto, debes indicarlo como un porcentaje del valor de la vivienda que elegis adjudicar.<br><br>
       Por regla general, debe ser al menos de 0,84% y, como máximo, de 1%.<br><br>
       En <i>Menú > SISTEMA DE PUNTAJE</i> puedes conocer mayores detalles. 
       </span>
-      </div><br><br><br>
-      <br>
+      </div><br>
+      
+      
+      {% if form.odm.errors %}
+            <div style="color:red">
+            {% for error in form.odm.errors %}
+                <p><i><small>{{ error|escape }}</small></i></p>
+                <p></p>
+            {% endfor %}
+            </div><br><br>
+        {% endif %}
+      
+      
+      <br><br>
       <div>
-      <fieldset class="sub_set">
+      <fieldset class="sub_set2">
         <legend>Aportes en efectivo:</legend>
         <label for="{{ form.oferta_efectivo.id_for_label }}">Al momento de la adjudicación:</label>
         {{ form.oferta_efectivo }}<br><br>

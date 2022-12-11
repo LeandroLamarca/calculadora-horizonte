@@ -113,7 +113,8 @@ class PlanActual(models.Model):
     cancelado = models.DecimalField(
         max_digits=7, 
         decimal_places=4, 
-        blank=False)
+        blank=False,
+    )
     
     # Deuda por gastos administrativos
     deuda = models.PositiveIntegerField(default=0)

@@ -11,50 +11,58 @@
   <form action="" method="post">
     {% csrf_token %}
     <div class="campos_form">
-    <br>
-    <fieldset>
+      <div>
       <br>
-      
-      <div>
-      <label for="{{ form.vivenda.id_for_label }}">Vivienda actual:</label>
-      {{ form.vivienda }}
+      <fieldset>
+        <br>
+        <div>
+          <label for="{{ form.vivenda.id_for_label }}">Vivienda actual:</label>
+          {{ form.vivienda }}
+        </div>
+        <div class="tooltip">
+          <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
+          <span class="tooltiptext">Debes elegir el código de la vivienda <ins>a la que aportas actualmente.</ins><br><br>
+          Puedes consultarlo en tus recibos.<br><br>
+          En <i>Menú > SISTEMA DE PUNTAJE</i> puedes ver un ejemplo.
+          </span>
+        </div><br><br><br>
+        <div>
+          <label for="{{ form.antiguedad.id_for_label }}">Antiguedad (en meses):</label>
+          {{ form.antiguedad }}
+        </div>
+        <div class="tooltip">
+          <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
+          <span class="tooltiptext">Cantidad de recibos/pagos efectuados desde el inicio.<br><br>
+          Si desconoces el dato, puedes indicar la cantidad de meses de antigüedad que tiene tu actual plan.<br><br>
+          En <i>Menú > SISTEMA DE PUNTAJE</i> puedes conocer mayores detalles. 
+          </span>
+        </div><br><br><br>
+        <div>
+          <label for="{{ form.cancelado.id_for_label }}">Cancelado (%):</label>
+          {{ form.cancelado }}
+        </div>
+        <div class="tooltip">
+          <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
+          <span class="tooltiptext">Porcentaje acumulado cancelado de la vivienda <ins>a la que aportas actualmente.</ins><br><br>
+           Te recomendamos consultarlo en tu último recibo.<br><br>
+           En <i>Menú > SISTEMA DE PUNTAJE</i> puedes ver un ejemplo.
+          </span>
+        </div><br>
+        
+        {% if form.cancelado.errors %}
+            <div style="color:red">
+            {% for error in form.cancelado.errors %}
+                <p><i><small>{{ error|escape }}</small></i></p>
+                <p></p>
+            {% endfor %}
+            </div><br>
+        {% endif %}
+        <br>
+        <input type="submit" value="CONFIRMAR">
+      </fieldset>
       </div>
-      <div class="tooltip">
-        <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
-        <span class="tooltiptext">Debes elegir el código de la vivienda a la que aportas actualmente.<br><br>
-        Puedes consultarlo en tus recibos.<br><br>
-        En <i>Menú > SISTEMA DE PUNTAJE</i> puedes ver un ejemplo.
-        </span>
-      </div><br><br><br>
-      
-      <div>
-      <label for="{{ form.antiguedad.id_for_label }}">Antiguedad (en meses):</label>
-      {{ form.antiguedad }}
-      </div>
-      <div class="tooltip">
-      <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
-      <span class="tooltiptext">Cantidad de recibos/pagos efectuados desde el inicio.<br><br>
-      Si desconoces el dato, puedes indicar la cantidad de meses de antigüedad que tiene tu actual plan.<br><br>
-      En <i>Menú > SISTEMA DE PUNTAJE</i> puedes conocer mayores detalles. 
-      </span>
-      </div><br><br><br>
-      
-      <div>
-      <label for="{{ form.cancelado.id_for_label }}">Cancelado (%):</label>
-      {{ form.cancelado }}
-      </div>
-      <div class="tooltip">
-      <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
-      <span class="tooltiptext">Porcentaje acumulado cancelado de la vivienda a la que aportas actualmente.<br><br>
-       Te recomendamos consultarlo en tu último recibo.<br><br>
-       En <i>Menú > SISTEMA DE PUNTAJE</i> puedes ver un ejemplo.
-      </span>
-      </div><br><br><br>
-      <input type="submit" value="CONFIRMAR">
-    </fieldset>
     </div>  
   </form>
-</div>  
-
+</div>
 
 {% endblock %}

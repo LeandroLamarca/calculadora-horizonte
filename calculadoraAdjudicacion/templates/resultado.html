@@ -21,9 +21,16 @@
     <p><small><i>Valor actualizado: {{ valor_vivienda_adjudicar }}</i></small></p>
   </fieldset><br><br>
   <fieldset class="sub_set">
-    <p><ins>Puntos acumulados</ins>: {{ puntos_totales }} | 
-    <ins>Puntos faltantes</ins>: {{ puntos_pendientes }}</p><br>
-    <p><ins>Con un aporte de</ins>: {{ aportemensualactual }}<br>
+    <div>
+    <p><ins>Puntos acumulados</ins>: {{ puntos_totales }}<br>
+    <ins>Puntos faltantes</ins>: {{ puntos_pendientes }}</p>
+    </div>
+    <div class="tooltip">
+          <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
+          <span class="tooltiptext">Puntos necesarios para llegar al puntaje que alcanzaron en promedio adjudicatarios anteriores para la vivienda que has elegido.</span>
+    </div><br>
+    <p><br><br>
+    <ins>Con un aporte de</ins>: {{ aportemensualactual }}<br>
     <i><small>Aporte mensual (previo a la adjudicación)</small></i>
     </p><br>
     <p><ins>Adjudicarías en</ins>: {{ meses }} meses</p><br>
@@ -41,13 +48,24 @@
     <div class="campos_form">
       <fieldset>
         <div>
-        <label for="{{ form.aporte_actual.id_for_label }}">Aporte mensual (antes de adjudicar):</label>
-        {{ form.aporte_actual }}<br>
+        <label for="{{ form.aporte_actual.id_for_label }}">Aporte pre-adjudicación:</label>
+        {{ form.aporte_actual }}
         </div>
         <div class="tooltip">
           <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
-          <span class="tooltiptext">Te permite elegir el aporte a realizar hasta que adjudiques y re-calcular los resultados.</span>
+          <span class="tooltiptext">Te permite indicar el aporte mensual a realizar hasta que adjudiques y re-calcular los resultados.</span>
         </div><br><br>
+        
+        {% if form.aporte_actual.errors %}
+            <div style="color:red">
+            {% for error in form.aporte_actual.errors %}
+                <p><i><small>{{ error|escape }}</small></i></p>
+                <p></p>
+            {% endfor %}
+            </div><br>
+        {% endif %}
+        
+        
         <input class="boton" type="submit" value="CONFIRMAR">
       </fieldset>
     </div>

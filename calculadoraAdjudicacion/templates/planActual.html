@@ -22,8 +22,7 @@
         <div class="tooltip">
           <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
           <span class="tooltiptext">Debes elegir el código de la vivienda <ins>a la que aportas actualmente.</ins><br><br>
-          Puedes consultarlo en tus recibos.<br><br>
-          En <i>Menú > SISTEMA DE PUNTAJE</i> puedes ver un ejemplo.
+          Puedes consultarlo en tus recibos.
           </span>
         </div><br><br><br>
         <div>
@@ -44,8 +43,7 @@
         <div class="tooltip">
           <img class="pregunta" src="/static/calculadoraAdjudicacion/images/pregunta.png">
           <span class="tooltiptext">Porcentaje acumulado cancelado de la vivienda <ins>a la que aportas actualmente.</ins><br><br>
-           Te recomendamos consultarlo en tu último recibo.<br><br>
-           En <i>Menú > SISTEMA DE PUNTAJE</i> puedes ver un ejemplo.
+           Te recomendamos consultarlo en tu último recibo.
           </span>
         </div><br>
         
@@ -64,5 +62,33 @@
     </div>  
   </form>
 </div>
+<div style="clear:left">
+<br>
+<button class="boton" id="miboton">AYUDA - Ver en recibo</button>
+</div>
+
+<!-- A continuación, la implementación de imagen modal/recibo. Adaptado de (ver fuente en style1.css)-->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+var button = document.getElementById("miboton");
+var modalImg = document.getElementById("img01");
+
+button.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = "/static/calculadoraAdjudicacion/images/recibo.PNG";
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
 
 {% endblock %}

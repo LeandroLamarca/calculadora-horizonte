@@ -45,7 +45,7 @@ img {display: block;margin-left: auto;margin-right: auto;}
   .tooltip .tooltiptext {width: 150px;}
   .tooltip .tooltiptext {top: -5px;right: 105%;}
   
-  .boton a {font-size: 12px;padding: 8px 10px;margin-block-start: 6px;margin-block-end: 6px;}
+  .boton a, button {font-size: 12px;padding: 8px 10px;margin-block-start: 6px;margin-block-end: 6px;}
   .topnav a, a.active {padding: 10px 14px;font-size: 15px;display:inline-block;}
   input[type=submit] {padding: 6px 6px;margin: 3px 2px;}
   img {width:30px;height:30px;padding: 8px;}
@@ -72,7 +72,7 @@ img {display: block;margin-left: auto;margin-right: auto;}
   .tooltip .tooltiptext {width: 300px;}
   
   
-  .boton a {font-size: 15px;padding: 10px 14px;margin-block-start: 6px;margin-block-end: 6px;}
+  .boton a, button {font-size: 15px;padding: 10px 14px;margin-block-start: 6px;margin-block-end: 6px;}
   .topnav {overflow: hidden;}
   .topnav a {padding: 14px 16px;font-size: 17px;float: left;text-align: center;}
   .topnav a.right {float: right;}
@@ -119,7 +119,7 @@ img {display: block;margin-left: auto;margin-right: auto;}
 }
 
 /* Estilo de botones/links del body */
-.boton a {
+.boton a, button {
   border-style: outset;
   border-width: 2px;
   border-radius: 12px;
@@ -129,9 +129,8 @@ img {display: block;margin-left: auto;margin-right: auto;}
   text-decoration: none;
   display: inline-block;
 }
-
 /* Estilo de botones/links del body el recibir foco del mouse */
-.boton a:hover {
+.boton a:hover, button:hover {
   background-color: #008000;
 }
 
@@ -151,3 +150,41 @@ input[type=submit]:hover {background-color: #008000;border-color: #008000;color:
 
 /* Estilo del pie de página */
 .footer {background-color: #767171;margin-top: auto;}
+
+/* Implementación de imagen modal. Fuente: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img */
+
+  /* The Modal (background) */
+  .modal {display: none; position: fixed;z-index: 1;padding-top: 20px;left: 0;top: 0;
+  width: 100%;height: 100%;overflow: auto;background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+    }
+
+
+  /* Modal Content (image) */
+  .modal-content {margin: auto;display: block;width: 80%;height:90%;}
+
+  /* Caption of Modal Image */
+  /*#caption {margin: auto;display: block;width: 80%;max-width: 700px;text-align: center;
+    color: #ccc;padding: 10px 0;height: 150px;
+    }*/
+
+  /* Add Animation */
+  .modal-content/*, #caption*/ {-webkit-animation-name: zoom;-webkit-animation-duration: 0.6s;
+  animation-name: zoom;animation-duration: 0.6s;
+    }
+
+  @-webkit-keyframes zoom {from {-webkit-transform:scale(0)} to {-webkit-transform:scale(1)}}
+
+  @keyframes zoom {from {transform:scale(0)} to {transform:scale(1)}}
+
+  /* The Close Button */
+  .close {position: absolute;top: 15px;right: 35px;color: #f1f1f1;font-size: 40px;
+  font-weight: bold;transition: 0.3s;
+    }
+
+  .close:hover, .close:focus {color: #bbb;text-decoration: none;cursor: pointer;}
+
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 600px){
+    .modal-content {width: 100%;}
+    }

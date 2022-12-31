@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'calculadoraAdjudicacion.apps.CalculadoraadjudicacionConfig',
-    # 'import_export'
+    'import_export'
 ]
 
 MIDDLEWARE = [
